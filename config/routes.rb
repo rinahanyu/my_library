@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :librarians
   get 'libraries/index'
 
   devise_for :users, controllers: {
