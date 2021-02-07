@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  library_id: 1
+  genre_id: 1
+  title: MyString
+  title_kana: MyString
+  author: MyString
+  publisher: 
+  published_on: 2021-02-07
+  book_image: 1
+  status: 1
+
+two:
+  library_id: 1
+  genre_id: 1
+  title: MyString
+  title_kana: MyString
+  author: MyString
+  publisher: 
+  published_on: 2021-02-07
+  book_image: 1
+  status: 1
