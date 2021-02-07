@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  book_id: 1
+  user_id: 1
+  reservation_id: 1
+  lent_on: 2021-02-07
+  return_date: 2021-02-07
+  returned_on: 2021-02-07
+
+two:
+  book_id: 1
+  user_id: 1
+  reservation_id: 1
+  lent_on: 2021-02-07
+  return_date: 2021-02-07
+  returned_on: 2021-02-07

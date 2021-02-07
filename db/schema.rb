@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210207144847) do
+ActiveRecord::Schema.define(version: 20210207150925) do
 
   create_table "books", force: :cascade do |t|
     t.integer  "library_id",                         null: false
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20210207144847) do
     t.boolean  "is_active",  default: true, null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "lendings", force: :cascade do |t|
+    t.integer  "book_id",        null: false
+    t.integer  "user_id",        null: false
+    t.integer  "reservation_id"
+    t.date     "lent_on",        null: false
+    t.date     "return_date",    null: false
+    t.date     "returned_on"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "librarians", force: :cascade do |t|

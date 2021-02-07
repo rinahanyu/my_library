@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :telphone_number, :postal_code, numericality: { only_integer: true }
   
   has_many :reservations, dependent: :destroy
+  has_many :lendings, dependent: :destroy
   enum gender: {
     男性: 0,
     女性: 1,
