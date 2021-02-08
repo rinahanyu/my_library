@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :librarians
-  get 'libraries/index'
-
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -11,5 +8,7 @@ Rails.application.routes.draw do
     registrations: 'librarians/registrations',
     sessions: 'librarians/sessions'
   }
+
+  resources :libraries, only: [:index, :new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
