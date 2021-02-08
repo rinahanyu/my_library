@@ -8,12 +8,12 @@
     <%= f.label :name, "司書名" %><br>
     <%= f.text_field :name, autofocus: true %><br>
   </div>
-  
+
   <div class="field">
     <%= f.label :library_id, "所属図書館" %><br>
     <%= f.collection_select :library_id, Library., :id, :name, {include_blank: "選択してください"} %>
   </div>
-  
+
   <!--<div class="field">-->
   <!--  <%#= f.label :email %><br />-->
   <!--  <#%= f.email_field :email, autofocus: true, autocomplete: "email" %>-->

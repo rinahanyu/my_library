@@ -3,7 +3,7 @@ class Librarian < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
-  belongs_to :library, optional: 
+
+  belongs_to :library, optional: true
   validates :library_id, :name, presence: true
 end
