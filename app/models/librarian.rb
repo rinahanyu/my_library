@@ -4,6 +4,6 @@ class Librarian < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  belongs_to :library
+  belongs_to :library, optional: 
   validates :library_id, :name, presence: true
 end
