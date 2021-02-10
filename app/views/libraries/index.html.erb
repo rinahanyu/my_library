@@ -1,3 +1,28 @@
 <h1>仮ログイン後ページ</h1>
-<p>Find me in app/views/libraries/index.html.erb</p>
+<h1>Library index page</h1>
+
+<h2>図書館一覧</h2>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th>図書館名</th>
+      <th>メールアドレス</th>
+      <th>郵便番号</th>
+      <th>住所</th>
+      <th>電話番号</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @libraries.each do |library| %>
+      <tr>
+        <td><%= library.name %></td>
+        <td><%= library.email %></td>
+        <td><%= library.postal_code %></td>
+        <td><%= library.address %></td>
+        <td><%= library.telphone_number %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
