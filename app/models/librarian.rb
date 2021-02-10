@@ -6,4 +6,12 @@ class Librarian < ApplicationRecord
 
   belongs_to :library, optional: true
   validates :library_id, :name, presence: true
+  
+  def email_required?
+    false
+  end
+
+  def email_changed?
+    false
+  end
 end
