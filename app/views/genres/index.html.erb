@@ -1,2 +1,29 @@
 <h1>Genres#index</h1>
-<p>Find me in app/views/genres/index.html.erb</p>
+
+<%= form_with model: @genre, url: genres_path, remote: true do |f| %>
+  <%= f.label :name, "ジャンル" %>
+  <%= f.text_field :name %>
+  <%= f.radio_button :is_active, :true %>
+  <%= f.label :is_active, "有効", {value: :true, style: "display: inline-block;"} %>
+  <%= f.radio_button :is_active, :false %>
+  <%= f.label :is_active, "無効", {value: :false, style: "display: inline-block;"} %>
+  <%= f.submit "追加", class: "btn btn-primary" %>
+<% end %>
+
+<h2>ジャンル一覧</h2>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th>ジャンル名</th>
+      <th>有効・無効</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @genres.each do |genre| %>
+      <tr>
+        <td><%= genre.name %></td>
+        <td><%= genre.is_active == true ? "有効":"無効" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
