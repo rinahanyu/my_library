@@ -1,9 +1,9 @@
 class Librarian < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :registerable,
          :recoverable, :rememberable, :validatable
-  # devise :database_authenticatable, ：authentication_keys => [:name, :library_id]
+  devise :database_authenticatable, authentication_keys: [:name, :library_id]
 
   belongs_to :library, optional: true
   validates :library_id, :name, presence: true
