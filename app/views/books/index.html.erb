@@ -1,0 +1,53 @@
+<h1>Books#index</h1>
+
+<%= form_with model: @book, url: books_path, remote: true do |f| %>
+  <%= f.label :title, "書籍表記" %>
+  <%= f.text_field :title %>
+  <%= f.label :title_kana, "書籍カナ" %>
+  <%= f.text_field :title_kana %>
+  <%= f.label :author, "著者" %>
+  <%= f.text_field :author %>
+  <%= f.label :publisher, "出版社" %>
+  <%= f.text_field :publisher %>
+  <%= f.label :published_on, "出版年月日" %><br>
+  <%= raw sprintf(
+    f.date_select(
+      :published_on,
+      include_blank: true,
+      use_month_numbers: true,
+      start_year:Time.now.year,
+      end_year:1950,
+      date_separator: "%s"),
+      "年", "月") +"日" %><br>
+  <%= f.label :book_image, "書籍画像" %><br>
+  <%= attachment_image_tag @book, :daily_image, format: "jpeg", size: "250x200" %>
+  <%= f.label :genre_id, "ジャンル" %>
+  <%= f.collection_select :genre_id, Genre.where(is_active: true), :id, :name, {include_blank: "選択してください"} %>
+  <%= f.label :library_id, "図書館" %>
+  <%= f.collection_select :library_id, Library.all, :id, :name, {include_blank: "選択してください"} %>
+  <%= f.select :status, options_for_select %>
+  <%= f.submit "登録", class: "btn btn-primary" %>
+<% end %>
+
+<h2>書籍一覧</h2>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th>書籍表記</th>
+      <th>書籍カナ</th>
+      <th>著者</th>
+      <th>出版社</th>
+      <th>出版年月日</th>
+      <th>書籍画像</th>
+      <th>貸出状況</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do book| %>
+      <tr>
+        <td><%= genre.name %></td>
+        <td><%= genre.is_active == true ? "有効":"無効" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
