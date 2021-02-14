@@ -13,6 +13,6 @@ class Book < ApplicationRecord
     貸出中: 1,
     予約あり: 2,
   }
-  
-  attachment :book
+
+  attachment :book_image
 end

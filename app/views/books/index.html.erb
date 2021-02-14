@@ -20,7 +20,7 @@
       date_separator: "%s"),
       "年", "月") +"日" %><br>
   <%= f.label :book_image, "書籍画像" %><br>
-  <%= attachment_image_tag @book, :book_image, format: "jpeg", size: "250x200" %><br>
+  <%= f.attachment_field :book_image %>
   <%= f.label :genre_id, "ジャンル" %><br>
   <%= f.collection_select :genre_id, Genre.where(is_active: true), :id, :name, {include_blank: "選択してください"} %><br>
   <%= f.label :library_id, "図書館" %><br>
