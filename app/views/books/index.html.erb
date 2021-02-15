@@ -10,15 +10,7 @@
   <%= f.label :publisher, "出版社" %><br>
   <%= f.text_field :publisher %><br>
   <%= f.label :published_on, "出版年月日" %><br>
-  <%= raw sprintf(
-    f.date_select(
-      :published_on,
-      include_blank: true,
-      use_month_numbers: true,
-      start_year:Time.now.year,
-      end_year:1950,
-      date_separator: "%s"),
-      "年", "月") +"日" %><br>
+  <%= f.date_field :published_on %><br>
   <%= f.label :book_image, "書籍画像" %><br>
   <%= f.attachment_field :book_image %>
   <%= f.label :genre_id, "ジャンル" %><br>
@@ -30,25 +22,34 @@
   <%= f.submit "登録", class: "btn btn-primary" %>
 <% end %>
 
-<!--<h2>書籍一覧</h2>-->
-<!--<table class="table">-->
-<!--  <thead class="thead-light">-->
-<!--    <tr>-->
-<!--      <th>書籍表記</th>-->
-<!--      <th>書籍カナ</th>-->
-<!--      <th>著者</th>-->
-<!--      <th>出版社</th>-->
-<!--      <th>出版年月日</th>-->
-<!--      <th>書籍画像</th>-->
-<!--      <th>貸出状況</th>-->
-<!--    </tr>-->
-<!--  </thead>-->
-<!--  <tbody>-->
-<!--    <%# @books.each do book| %>-->
-<!--      <tr>-->
-<!--        <td><%#= genre.name %></td>-->
-<!--        <td><%#= genre.is_active == true ? "有効":"無効" %></td>-->
-<!--      </tr>-->
-<!--    <%# end %>-->
-<!--  </tbody>-->
-<!--</table>-->
+<h2>書籍一覧</h2>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th>画像</th>
+      <th>書籍表記</th>
+      <th>書籍カナ</th>
+      <th>著者</th>
+      <th>出版社</th>
+      <th>出版年月日</th>
+      <th>ジャンル</th>
+      <th>図書館</th>
+      <th>貸出状況</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= attachment_image_tag book, :book_image, format: "jpeg", size: "250x200" %></td>
+        <td><%= book.title %></td>
+        <td><%= book.title_kana %></td>
+        <td><%= book.author %></td>
+        <td><%= book.publisher %></td>
+        <td><%= book.published_on %></td>
+        <td><%= book.genre.name %></td>
+        <td><%= book.library.name %></td>
+        <td><%= book.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

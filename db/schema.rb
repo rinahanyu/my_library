@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_12_034718) do
+ActiveRecord::Schema.define(version: 2021_02_15_130412) do
 
   create_table "books", force: :cascade do |t|
     t.integer "library_id", null: false
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_02_12_034718) do
     t.string "author", null: false
     t.string "publisher", null: false
     t.date "published_on", null: false
-    t.integer "book_image_id"
+    t.string "book_image_id"
     t.integer "status", limit: 1, default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
