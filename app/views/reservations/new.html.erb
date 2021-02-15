@@ -1,2 +1,11 @@
 <h1>Reservations#new</h1>
-<p>Find me in app/views/reservations/new.html.erb</p>
+
+ <h2><%= @book.name %>の貸出予約画面</h2>
+
+<%= form_with model: @reservatioin, url: book_reservations_path(@book), remote: true do |f| %>
+  <%= f.label :lending_date, "貸出予定日" %><br>
+  <%= f.date_field :lending_date %><br>
+  <%= f.label :return_date, "返却予定日" %><br>
+  <%= f.date_field :return_date %><br>
+  <%= f.submit "登録", class: "btn btn-primary" %>
+<% end %>
