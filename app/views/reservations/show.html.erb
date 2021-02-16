@@ -1,2 +1,11 @@
-<h1>Reservations#show</h1>
-<p>Find me in app/views/reservations/show.html.erb</p>
+<h2>予約詳細</h2>
+
+<%= attachment_image_tag @reservation.book, :book_image, format: "jpeg", size: "250x200" %>
+<h4>書籍名</h4>
+<%= @reservation.book.title %>
+<h4>予約者名</h4>
+<%= @reservation.user.last_name %><%= @reservation.user.first_name %>
+<h4>貸出予定日</h4>
+<%= @reservation.lending_date %>
+<h4>返却予定日</h4>
+<%= @reservation.return_date %>
