@@ -5,7 +5,7 @@
 <%= form_with model: @lending, url: book_lendings_path(@book), remote: true do |f| %>
   <%= f.label :user_id, "図書館利用者" %><br>
   <%= f.collection_select :user_id, User.all.order(:last_name), :id, :last_name, {include_blank: "選択してください"} %><br>
-  <%= f.label :reservation_id, "予約ナンバー" %><br>
+  <%= f.label :reservation_id, "予約ナンバー（予約がある場合のみ）" %><br>
   <%= f.collection_select :reservation_id, Reservation.all, :id, :id, {include_blank: "選択してください"} %><br>
   <%= f.label :lent_on, "貸出日" %><br>
   <%= f.date_field :lent_on %><br>
