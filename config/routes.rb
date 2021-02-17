@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'lendings/index'
+  get 'lendings/new'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
