@@ -12,4 +12,8 @@ class User < ApplicationRecord
     男性: 0,
     女性: 1,
   }
+  
+  def full_name
+    self.first_name + self.last_name
+  end
 end

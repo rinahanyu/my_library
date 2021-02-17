@@ -2,7 +2,7 @@
 
 <%= form_with model: @lending, url: book_lendings_path(@book), remote: true do |f| %>
   <%= f.label :user_id, "図書館利用者" %><br>
-  <%= f.collection_select :user_id, User.all.order(:last_name), :id, :last_name, {include_blank: "選択してください"} %><br>
+  <%= f.collection_select :user_id, User.all.order(:full_name), :id, :full_name, {include_blank: "選択してください"} %><br>
   <% if @reservation.present? %>
     <%= f.label :reservation_id, "予約ナンバー（予約がある場合のみ）" %><br>
     <%= f.collection_select :reservation_id, @reservation, :id, :id, {include_blank: "選択してください"} %><br>
