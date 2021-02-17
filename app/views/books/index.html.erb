@@ -50,6 +50,7 @@
         <td><%= book.library.name %></td>
         <td><%= book.status %></td>
         <td><%= link_to '予約画面へ', new_book_reservation_path(book) %></td>
+        <td><%= link_to '貸出画面へ（司書のみ）', new_book_lending_path(book) %></td>
       </tr>
     <% end %>
   </tbody>

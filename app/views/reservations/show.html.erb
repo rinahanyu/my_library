@@ -1,6 +1,8 @@
 <h2>予約詳細</h2>
 
 <%= attachment_image_tag @reservation.book, :book_image, format: "jpeg", size: "250x200" %>
+<h4>予約ナンバー</h4>
+<%= @reservation.id %>
 <h4>書籍名</h4>
 <%= @reservation.book.title %>
 <h4>予約者名</h4>

@@ -4,7 +4,8 @@ class LendingsController < ApplicationController
 
   def new
     @lending = Lending.new
-    @book = Book.find(params[:])
+    @book = Book.find(params[:book_id])
+    # @reservations = Reservation.find(book_id: @book.id)
   end
   
   def create
