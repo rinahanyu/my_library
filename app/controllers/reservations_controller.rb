@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   def new
-    @reservatioin = Reservation.new
+    @reservation = Reservation.new
     @book = Book.find(params[:book_id])
   end
 

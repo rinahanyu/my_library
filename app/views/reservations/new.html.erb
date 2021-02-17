@@ -21,7 +21,7 @@
  <p>貸出状況</p>
  <p><%= @book.status %></p>
 
-<%= form_with model: @reservatioin, url: book_reservations_path(@book), remote: true do |f| %>
+<%= form_with model: @reservation, url: book_reservations_path(@book), remote: true do |f| %>
   <%= f.label :lending_date, "貸出予定日" %><br>
   <%= f.date_field :lending_date %><br>
   <%= f.label :return_date, "返却予定日" %><br>

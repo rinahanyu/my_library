@@ -1,2 +1,11 @@
 <h1>Lendings#new</h1>
-<p>Find me in app/views/lendings/new.html.erb</p>
+
+ <h2>貸出登録画面</h2>
+
+<%= form_with model: @lending, url: book_lendings_path(@book), remote: true do |f| %>
+  <%= f.label :lent_on, "貸出日" %><br>
+  <%= f.date_field :lent_on %><br>
+  <%= f.label :return_date, "返却予定日" %><br>
+  <%= f.date_field :return_date %><br>
+  <%= f.submit "登録", class: "btn btn-primary" %>
+<% end %>
